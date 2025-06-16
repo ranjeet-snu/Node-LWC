@@ -35,23 +35,22 @@
     <div id="container"></div>
  
     <script>
-      $Lightning.use(
-        "c:chatBot", // Replace with your actual Lightning App name
-        function () {
-          // Callback once framework and app load
-          $Lightning.createComponent(
-            "lightning:flow",
-            {},
-            "container",
-            function (component) {
-              // API name of the Flow
-              component.startFlow("DemoChatBot");
-            }
-          );
-        },
-        "https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/ChatBotDMS" // Site endpoint
-      );
-  </script>
+        $Lightning.use(
+          "c:chatBot", // Lightning Out App name (should include your LWC)
+          function () {
+            // Callback after Lightning framework and app are loaded
+            $Lightning.createComponent(
+              "c:chatBotContainer", // Replace with your actual LWC name
+              {}, // Pass attributes here if your LWC accepts any
+              "container", // ID of the container div
+              function (component) {
+                console.log("LWC component loaded successfully");
+              }
+            );
+          },
+          "https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/ChatBotDMS" // Experience Cloud Site URL
+        );
+      </script>
     
 
   </section>
