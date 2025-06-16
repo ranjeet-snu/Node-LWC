@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Salesforce CRM Overview</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/lightning/lightning.out.js"></script>
+  <script src="https://orgfarm-55ac2ced50-dev-ed.develop.my.salesforce.com/lightning/lightning.out.js"></script>
 </head>
 <body>
   <header>
@@ -35,7 +35,7 @@
     
     
     <script>
-      $Lightning.use("c:lightningOutApp", function() {
+      $Lightning.use("c:chatBot", function() {
         $Lightning.createComponent(
           "c:chatBotContainer",
           {},
@@ -44,7 +44,7 @@
             console.log("LWC loaded on Experience site domain!");
           }
         );
-      }, "https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com");
+      }, "https://orgfarm-55ac2ced50-dev-ed.develop.my.salesforce.com");
     </script>
     
 <!-- Example 4: Wikipedia
