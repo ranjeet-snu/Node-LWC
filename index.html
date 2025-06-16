@@ -29,7 +29,23 @@
     <p>Trusted by thousands of companies worldwide, Salesforce offers scalable solutions, powerful integrations, and an ecosystem that grows with your business.</p>
 
     
+    <div id="lwc-container"></div>
 
+    <script src="https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/lightning/lightning.out.js"></script>
+    
+    <script>
+      $Lightning.use("c:lightningOutApp", function() {
+        $Lightning.createComponent(
+          "c:yourLwcComponent",
+          {},
+          "lwc-container",
+          function(cmp) {
+            console.log("LWC loaded on Experience site domain!");
+          }
+        );
+      }, "https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com");
+    </script>
+    
 <!-- Example 4: Wikipedia -->
 <iframe src="https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/ChatBotDMS/s/" width="100%" height="600" style="border:none;"></iframe>
 <iframe src="https://en.wikipedia.org/wiki/Web_development" width="100%" height="600" style="border:none;"></iframe>
