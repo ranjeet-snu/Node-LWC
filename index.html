@@ -11,6 +11,7 @@
   <header>
     <h1>Welcome to Salesforce CRM</h1>
     <p>Empower your business with intelligent customer relationship management</p>
+    <script type="text/javascript" src="https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/lightning/lightning.out.js"></script>
   </header>
 
   <section class="content">
@@ -30,25 +31,26 @@
     <p>Trusted by thousands of companies worldwide, Salesforce offers scalable solutions, powerful integrations, and an ecosystem that grows with your business.</p>
 
     
-    <div id="lwc-container"></div>
-
-    <script src="https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/lightning/lightning.out.js">
-    console.log("Lightning Out script loaded!");</script>
-    
-    
-    <script>
-        console.log("LWC entered.....!");
-      $Lightning.use("c:chatBot", function() {
+    <div id="container"></div>
+ 
+  <script>
+    $Lightning.use(
+      "c:chatBot", // Replace with your actual Lightning App name
+      function () {
+        // Callback once framework and app load
         $Lightning.createComponent(
-          "c:chatBotContainer",
+          "lightning:flow",
           {},
-          "lwc-container",
-          function(cmp) {
-            console.log("LWC loaded on Experience site domain!");
+          "container",
+          function (component) {
+            // API name of the Flow
+            component.startFlow("DemoChatBot");
           }
         );
-      }, "https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com");
-    </script>
+      },
+      "https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/ChatBotDMS/s" // Site endpoint
+    );
+</script>
     
 <!-- Example 4: Wikipedia
 <iframe src="https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/ChatBotDMS/s/" width="100%" height="600" style="border:none;"></iframe>
