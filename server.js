@@ -1,42 +1,35 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Salesforce CRM Overview</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Welcome to Salesforce CRM</h1>
-    <p>Empower your business with intelligent customer relationship management</p>
-  </header>
+// server.js
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
-  <section class="content">
-    <h2>What is Salesforce?</h2>
-    <p>Salesforce is a cloud-based CRM platform that helps businesses manage their customer relationships, streamline sales, and improve customer service.</p>
+const PORT = 3000;
 
-    <h2>Key Features</h2>
-    <ul>
-      <li>Contact and Lead Management</li>
-      <li>Opportunity Tracking</li>
-      <li>Custom Dashboards and Reports</li>
-      <li>Marketing Automation</li>
-      <li>AI-powered Insights</li>
-    </ul>
+const server = http.createServer((req, res) => {
+  let filePath = '';
+  let contentType = 'text/html';
 
-    <h2>Why Choose Salesforce?</h2>
-    <p>Trusted by thousands of companies worldwide, Salesforce offers scalable solutions, powerful integrations, and an ecosystem that grows with your business.</p>
+  if (req.url === '/' || req.url === '/index.html') {
+    filePath = path.join(__dirname, 'index.html');
+  } else if (req.url === '/style.css') {
+    filePath = path.join(__dirname, 'style.css');
+    contentType = 'text/css';
+  } else {
+    res.writeHead(404);
+    return res.end('404 Not Found');
+  }
 
-    
+  fs.readFile(filePath, (err, content) => {
+    if (err) {
+      res.writeHead(500);
+      res.end('Server Error');
+    } else {
+      res.writeHead(200, { 'Content-Type': contentType });
+      res.end(content);
+    }
+  });
+});
 
-<!-- Example 4: Wikipedia -->
-<iframe src="https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/ChatBotDMS/s/" width="100%" height="600" style="border:none;"></iframe>
-<iframe src="https://en.wikipedia.org/wiki/Web_development" width="100%" height="600" style="border:none;"></iframe>
-  </section>
-  
-  <footer>
-    <p>© 2025 Salesforce CRM Info Site</p>
-  </footer>
-</body>
-</html>
+server.listen(PORT, () => {
+  console.log(`🌐 Website running at http://localhost:${PORT}`);
+});
