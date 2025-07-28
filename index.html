@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <title>Salesforce CRM Overview</title>
   <link rel="stylesheet" href="style.css">
-<script type="text/javascript" src="https://d7f000001urjxuau.my.site.com/lightning/lightning.out.js"></script> 
+  <script type="text/javascript" src="https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/ChatBotDMS/lightning/lightning.out.js"></script>
+ 
 </head>
 <body>
   <header>
@@ -35,11 +36,11 @@
  
     <script>
         $Lightning.use(
-          "c:chatExpose", // Lightning Out App name (should include your LWC)
+          "c:chatBot", // Lightning Out App name (should include your LWC)
           function () {
             // Callback after Lightning framework and app are loaded
             $Lightning.createComponent(
-              "c:floaterChat", // Replace with your actual LWC name
+              "c:chatBotContainer", // Replace with your actual LWC name
               {}, // Pass attributes here if your LWC accepts any
               "container", // ID of the container div
               function (component) {
@@ -47,7 +48,7 @@
               }
             );
           },
-          "https://d7f000001urjxuau.my.site.com" // Experience Cloud Site URL
+          "https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/ChatBotDMS" // Experience Cloud Site URL
         );
       </script>
     
