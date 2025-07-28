@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <title>Salesforce CRM Overview</title>
   <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/ChatBotDMS/lightning/lightning.out.js"></script>
- 
+<script type="text/javascript" src="https://d7f000001urjxuau--sandbox002.sandbox.my.site.com/lightning/lightning.out.js"></script> 
 </head>
 <body>
   <header>
@@ -36,11 +35,56 @@
  
     <script>
         $Lightning.use(
-          "c:chatBot", // Lightning Out App name (should include your LWC)
+          "c:chatExpose", // Lightning Out App name (should include your LWC)
           function () {
             // Callback after Lightning framework and app are loaded
             $Lightning.createComponent(
-              "c:chatBotContainer", // Replace with your actual LWC name
+              "c:floaterChat", // Replace with your actual LWC name
+              {}, // Pass attributes here if your LWC accepts any
+              "container", // ID of the container div
+              function (component) {
+                console.log("LWC <!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Salesforce CRM Overview</title>
+  <link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="https://d7f000001urjxuau--sandbox002.sandbox.my.site.com/lightning/lightning.out.js"></script> 
+</head>
+<body>
+  <header>
+    <h1>Welcome to Salesforce CRM</h1>
+    <p>Empower your business with intelligent customer relationship management</p>
+   
+  </header>
+
+  <section class="content">
+    <h2>What is Salesforce?</h2>
+    <p>Salesforce is a cloud-based CRM platform that helps businesses manage their customer relationships, streamline sales, and improve customer service.</p>
+
+    <h2>Key Features</h2>
+    <ul>
+      <li>Contact and Lead Management</li>
+      <li>Opportunity Tracking</li>
+      <li>Custom Dashboards and Reports</li>
+      <li>Marketing Automation</li>
+      <li>AI-powered Insights</li>
+    </ul>
+
+    <h2>Why Choose Salesforce?</h2>
+    <p>Trusted by thousands of companies worldwide, Salesforce offers scalable solutions, powerful integrations, and an ecosystem that grows with your business.</p>
+
+    
+    <div id="container"></div>
+ 
+    <script>
+        $Lightning.use(
+          "c:chatExpose", // Lightning Out App name (should include your LWC)
+          function () {
+            // Callback after Lightning framework and app are loaded
+            $Lightning.createComponent(
+              "c:floaterChat", // Replace with your actual LWC name
               {}, // Pass attributes here if your LWC accepts any
               "container", // ID of the container div
               function (component) {
@@ -48,7 +92,22 @@
               }
             );
           },
-          "https://orgfarm-55ac2ced50-dev-ed.develop.my.site.com/ChatBotDMS" // Experience Cloud Site URL
+          "https://d7f000001urjxuau--sandbox002.sandbox.my.site.com" // Experience Cloud Site URL
+        );
+      </script>
+    
+
+  </section>
+  
+  <footer>
+    <p>© 2025 Salesforce CRM Info Site</p>
+  </footer>
+</body>
+</html>component loaded successfully");
+              }
+            );
+          },
+          "https://d7f000001urjxuau--sandbox002.sandbox.my.site.com" // Experience Cloud Site URL
         );
       </script>
     
